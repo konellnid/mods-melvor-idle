@@ -53,11 +53,11 @@ export function setup(ctx) {
             // get levels from mod settings instead of relicSet object
             const customLevelUpUnlocks = createGuaranteedDropLevelsArray();
 
-            const guaranteedRelics = customLevelUpUnlocks.filter(level => newLevel >= level).length;
-            const foundRelics = relicSet.relicDrops.filter((drop) => relicSet.isRelicFound(drop.relic)).length;
+            const guaranteedRelicsCount = customLevelUpUnlocks.filter(level => newLevel >= level).length;
+            const foundRelicsCount = relicSet.relicDrops.filter((drop) => relicSet.isRelicFound(drop.relic)).length;
 
-            if (guaranteedRelics > foundRelics) {
-                const relicsToUnlock = guaranteedRelics - foundRelics;
+            if (guaranteedRelicsCount > foundRelicsCount) {
+                const relicsToUnlock = guaranteedRelicsCount - foundRelicsCount;
                 this.unlockRelicDrops(relicSet, relicsToUnlock);
             }
         });
